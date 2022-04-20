@@ -11,7 +11,7 @@ export default class Felvitelkomm extends Component {
         termek_nev:"",
         termek_info:"",
         termek_ar:"",
-        
+        termek_tipus:"",
         
        
 
@@ -23,16 +23,18 @@ export default class Felvitelkomm extends Component {
 felvitel=async ()=>{
     //alert("megnyomva a gomb")
 
-    if (this.state.termek_nev=="" || this.state.termek_ar==""|| this.state.termek_info==""||this.kep_id)
+    if (this.state.termek_nev=="" ||this.state.termek_tipus==""|| this.state.termek_ar==""|| this.state.termek_info==""||this.kep_id)
     {
       alert("toltsd ki!!")
       return
     }
     let bemenet={
       bevitel1:this.state.termek_nev,
-      bevitel2:this.state.termek_info,
-      bevitel3:this.state.termek_ar,
-      bevitel4:this.state.termek_tipus,
+      bevitel2:this.state.termek_tipus,
+      bevitel3:this.state.termek_info,
+      bevitel4:this.state.termek_ar,
+      
+      bevitel5:this.state.kep_id,
       
       
     }
@@ -54,9 +56,10 @@ felvitel=async ()=>{
     alert(szoveg)
      
     this.setState({termek_nev:""})
+    this.setState({termek_tipus:""})
     this.setState({termek_info:""})
     this.setState({termek_ar:""})
-    this.setState({termek_tipus:""})
+    this.setState({kep_id:""})
    
     
 
@@ -89,7 +92,7 @@ felvitel=async ()=>{
           <TextInput
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            placeholder="Add meg a kérdést:"
+            placeholder="Tipus:"
             onChangeText={(termek_tipus) => this.setState({termek_tipus})}
             value={this.state.termek_tipus}
           />
@@ -115,26 +118,17 @@ felvitel=async ()=>{
             onChangeText={(termek_ar) => this.setState({termek_ar})}
             value={this.state.termek_ar}
           />
- <Text style={{color:'black'}}>
-                Szöveg
-            </Text>
-<TextInput
-            placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            
-            onChangeText={(ido_datum) => this.setState({ido_datum})}
-            value={this.state.ido_datum}
-          />
+ 
 
 
-
-          <FileUpload  termek_nev={this.state.termek_nev} termek_ar={this.state.termek_ar} termek_info={this.state.termek_info}>
+          <FileUpload  termek_nev={this.state.termek_nev} termek_tipus={this.state.termek_tipus} termek_ar={this.state.termek_ar} termek_info={this.state.termek_info} >
               
               </FileUpload>
          
 
-
+          
            <TouchableOpacity
+            
             onPress={async ()=>this.felvitel()}>
             <View style={styles.gomb}>
               <Text style={styles.gombSzoveg}>Küldés</Text>

@@ -17,6 +17,7 @@
     "react-scripts": "^5.0.0",
     "react-validation": "^3.0.7",
     "validator": "^13.7.0"
+    
   },
   "scripts": {
     "start": "react-scripts start",

@@ -20,7 +20,7 @@ export default class Bevitel extends Component {
     //alert(szam)
     this.setState({})
 
-    return fetch('http://localhost:8080:3000/tema')
+    return fetch('http://localhost:8080/tema')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -73,25 +73,27 @@ felvitel=async ()=>{
 
   render() {
     return (
-    <View style = {{backgroundColor:'#544a2c',width:'100%',borderRadius:30,alignSelf:'center'}}>
-      <View style={{padding: 40}}>
-          <Text style={{padding: 15, fontSize: 25,color:'#e3b627',textAlign:'center'}}>
+    <View style = {{backgroundColor:'#87ecec',width:'100%',borderRadius:30,borderWidth:8,alignSelf:'center',shadowColor: "#000000",
+    shadowOpacity: 25,
+    shadowRadius: 30,}}>
+      <View style={{padding: 40 }}>
+          <Text style={{padding: 15, fontSize: 25,color:'black',textAlign:'center'}}>
               Név:
           </Text>
         <TextInput
-          placeholderTextColor="#ffda6b"
-          style={{height: 50,width:'80%',alignSelf:'center',backgroundColor:'#6b634b',borderColor:'black',color:"white"}}
+          placeholderTextColor="black"
+          style={{height: 50,width:'80%',alignSelf:'center',backgroundColor:'#ec8787',borderColor:'black',color:"white",borderWidth:3, borderRadius:4}}
           placeholder="Add meg a neved:"
           onChangeText={(nev) => this.setState({nev})}
           value={this.state.nev}
         />
 
-        <Text style={{paddingTop: 10, fontSize: 22,color:'#e3b627',textAlign:'center'}}>
+        <Text style={{paddingTop: 10, fontSize: 22,color:'#black',textAlign:'center'}}>
               Komment:
           </Text>
         <TextInput
-          placeholderTextColor="#ffda6b"
-          style={{height: 120, width:'80%',alignSelf:'center',backgroundColor:'#6b634b',marginBottom:5,textAlignVertical:'top',color:'#635320'}}
+          placeholderTextColor="black"
+          style={{height: 120, width:'80%',alignSelf:'center',backgroundColor:'#ec8787',marginBottom:5,textAlignVertical:'top',color:'#635320',borderWidth:3, borderRadius:4}}
           placeholder="Add meg a kommentet:"
           onChangeText={(komment) => this.setState({komment})}
           value={this.state.komment}
@@ -112,16 +114,17 @@ felvitel=async ()=>{
 const styles = StyleSheet.create({
     gombSzoveg:{
             textAlign:'center',
-            color:'white',
+            color:'black',
             marginTop:'auto',
             marginBottom:'auto',
             fontSize:25
     },
     gomb:{
             height:45,
-            backgroundColor:'#635320',
+            backgroundColor:'#ec8787',
             width:'45%',
             alignSelf:'center',
-            borderRadius:10
+            borderRadius:10,
+            borderWidth:2
     },
 });

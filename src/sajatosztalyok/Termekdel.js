@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
        
       marginBottom:100,
        padding:20,
-       backgroundColor:'#2197db',
+       backgroundColor:'#87ecec',
        shadowColor: "#000000",
        shadowOpacity: 30,
        shadowRadius: 50,

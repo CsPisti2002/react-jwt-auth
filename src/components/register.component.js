@@ -20,7 +20,7 @@ const email = value => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+        Nem megfelelő e-mail cím!
       </div>
     );
   }
@@ -30,7 +30,8 @@ const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        
+        A felhasználónévnek legalább 3-20 karakterből kell állnia!
       </div>
     );
   }
@@ -40,7 +41,8 @@ const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        
+        A jelszónak legalább 6-40 karakterből kell állnia!
       </div>
     );
   }
@@ -163,7 +165,7 @@ export default class Register extends Component {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Jelszó</label>
                   <Input
                     type="password"
                     className="form-control"

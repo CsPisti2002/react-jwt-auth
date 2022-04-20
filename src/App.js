@@ -12,14 +12,15 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
-import Proba from "./sajatosztalyok/Proba";
+
 import Komment from "./sajatosztalyok/Komment";
 import Forum from "./sajatosztalyok/Forum";
 import Torol from "./sajatosztalyok/Torol";
-import Felvitel from "./sajatosztalyok/Felvitel";
+
 import Termekek from "./sajatosztalyok/Termekek";
 import Termekfelvitel from "./sajatosztalyok/Termekfelvitel";
 import Termekdel from "./sajatosztalyok/Termekdel";
+
 
 
 
@@ -56,6 +57,7 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
+      
 
 
 
@@ -64,7 +66,7 @@ class App extends Component {
 
       <div>
 
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+<Navbar collapseOnSelect style={{backgroundColor:'#87ecec'}} >
       <Navbar.Brand href="#home">
        
         CsekElektronik
@@ -73,24 +75,17 @@ class App extends Component {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
 
-          <Nav.Link href="forum">Forum</Nav.Link>
-          <Nav.Link href="termekek">Termekek</Nav.Link>
-          
-          {currentUser && (
-          <Nav.Link href="komment">Komment</Nav.Link>,
-          
-          
+        <Nav>
+        {currentUser && ( 
 
+          <Nav className="mr-auto">
+           <Nav.Link href="forum">Forum</Nav.Link>
+           <Nav.Link  href="termekek">Termekek</Nav.Link>
+           <Nav.Link  href="komment">Komment</Nav.Link>
 
-          <Nav.Link href="felvitel">Felvitel</Nav.Link>
-         
-
-          )}
-
-         
-
-
-
+           </Nav>
+       )}
+           </Nav>
 
 {showModeratorBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
@@ -101,16 +96,7 @@ class App extends Component {
             <NavDropdown.Item href="termekdel">Terméktörlés</NavDropdown.Item>
 
           
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
+           
           </NavDropdown>
           )}
         </Nav>
@@ -118,22 +104,27 @@ class App extends Component {
         
         <Nav>
         {currentUser ? (
+          
           <Nav className="mr-auto">
+            
+           
+            
           <Nav.Link href="/profile">
+          
             {currentUser.username}
             </Nav.Link>
             <Nav.Link href="/login" onClick={this.logOut}>
-            LogOut
+            Kijelentkezés
             </Nav.Link>
             </Nav>
           ) : (
             
             <Nav className="mr-auto">
             <Nav.Link href="/login">
-            Login
+            Bejelntkezés
               </Nav.Link>
               <Nav.Link href="/register">
-              Sign up
+              Regisztráció
               </Nav.Link>
               </Nav>
           )}
@@ -170,14 +161,15 @@ class App extends Component {
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
-            <Route path="/proba" component={Proba} />
+            
             <Route path="/komment" component={Komment} />
             <Route path="/forum" component={Forum} />
             <Route path="/torol" component={Torol} />
-            <Route path="/felvitel" component={Felvitel} />
+            
             <Route path="/termekek" component={Termekek} />
             <Route path="/termekfelvitel" component={Termekfelvitel} />
             <Route path="/termekdel" component={Termekdel} />
+
          
 
 

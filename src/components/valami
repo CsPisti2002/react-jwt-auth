@@ -1,8 +1,11 @@
 import React from 'react';
-import {StyleSheet, FlatList, ActivityIndicator, Text, View, TouchableOpacity,TextInput } from 'react-native-web';
+import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity,TextInput } from 'react-native-web';
+import { TextInput } from 'react-native-web-gesture-handler';
 
 
 
+//const ipcim="192.168.1.11";
+//const IP = require('./ipcim.js');
 
 
 export default class FetchExample extends React.Component {
@@ -14,8 +17,6 @@ export default class FetchExample extends React.Component {
       szo:'',
       akttema:1,
 feladat:"",
-nev: '',
-komment:'',
       dataSource:[],
       dataSource2:[]
 
@@ -23,11 +24,6 @@ komment:'',
 	
 	
   }
-
-
-
-  
-
 
   beviteltorles=async()=>{
     this.setState( { feladat:"" })
@@ -40,7 +36,7 @@ komment:'',
       bevitel1:this.state.feladat
      
     }
-fetch('http://localhost:8080/kereses', {
+fetch('http://localhost:8080//kereses', {
   method: "POST",
   body: JSON.stringify(bemenet),
   headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -86,7 +82,7 @@ fetch('http://localhost:8080/kereses', {
       
 
     
-    return fetch('http://localhost:8080/kerdes')
+    return fetch('http://localhost:8080//kerdes')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -112,7 +108,7 @@ fetch('http://localhost:8080/kereses', {
     let bemenet={
       bevitel1:szam
     }
-    return fetch('http://localhost:8080/temalekerdez',{
+    return fetch('http://localhost:8080//temalekerdez',{
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -161,39 +157,21 @@ fetch('http://localhost:8080/kereses', {
    
 
     return(
-
-      
-
-
-
-
-
-
-
-      
-      <View style={{flex: 1, paddingTop:20,backgroundColor:'#87ecec',borderColor: 'black',borderWidth:5, shadowColor: "#000000",
-      shadowOpacity: 30,
-      shadowRadius: 30, borderRadius:20}}>
-
-
-
-
-
-
+      <View style={{flex: 1, paddingTop:20,backgroundColor:'#5c8a8a'}}>
 {/*--------------------------------------------------------------------------témák */}        
 
 {/* ----------------------------------------------------uj class meghivasa*/}
 <View style={{flexDirection:"row",flex:1,marginBottom:100}}>
 <TextInput
-          placeholderTextColor="black"
-          style={{ height:60, minWidth:150,borderRadius:15,borderWidth:2,backgroundColor:'#ec8787',padding:10,borderColor:'black',color:"white",marginLeft: "auto", flex: 1}}
+          placeholderTextColor="#ffda6b"
+          style={{ height:60, minWidth:150,borderRadius:15,backgroundColor:'#666699',padding:10,borderColor:'black',color:"white",marginLeft: "auto", flex: 1}}
           placeholder="Mire szeretnél rákeresni?"
           onChangeText={(feladat) => this.setState({feladat})}
           value={this.state.feladat}
         />
 
 <TouchableOpacity
-        style={{backgroundColor:"brown",width:60,height:60,borderRadius:10,borderWidth:2, marginRight:"auto"}}
+        style={{backgroundColor:"brown",width:60,height:60,borderRadius:10, marginRight:"auto"}}
         onPress={async()=>this.beviteltorles()}
         
       >
@@ -204,7 +182,7 @@ fetch('http://localhost:8080/kereses', {
         style={styles.gomb}
         onPress={async()=>this.keres()}
       >
-        <Text style={styles.gombSzoveg}>Keresés</Text>
+        <Text style={styles.gombSzoveg}>Kereses</Text>
       </TouchableOpacity> 
 
 
@@ -217,17 +195,15 @@ fetch('http://localhost:8080/kereses', {
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View style={{ shadowColor: "#000000",
-          shadowOpacity: 30,
-          shadowRadius: 15,borderWidth:3,margin:20,backgroundColor:"#ec8787",paddingLeft:10,paddingRight:10,borderRadius:15}}>
+          <View style={styles.container} /*style={{borderWidth:3,margin:20,backgroundColor:"#ff7733",paddingLeft:10,paddingRight:10,borderRadius:15}}*/>
 
          
          
         <Text style={{color:"#1a0d00",fontSize:25,marginTop:15,fontWeight:"bold"}}   >
           {item.komment_nev} </Text>
-          <Text style={{color:"black",fontSize:20}}   >
+          <Text style={{color:"#4d2600",fontSize:20}}   >
           {item.komment_szoveg} </Text>
-          <Text style={{color:"black",fontSize:15,marginBottom:5,fontWeight:"bold",paddingBottom:15}}   >
+          <Text style={{color:"#ffa64d",fontSize:15,marginBottom:5,fontWeight:"bold",paddingBottom:15}}   >
           {item.komment_datum} </Text>
      
    
@@ -255,19 +231,33 @@ fetch('http://localhost:8080/kereses', {
 
 const styles = StyleSheet.create({
   
+  container:{
+    borderRadius:25,
+    marginBottom:100,
+     padding:20,
+     backgroundColor:'#d9d9d9',
+     shadowColor: "#000000",
+     shadowOpacity: 30,
+     shadowRadius: 50,
+     shadowOffset: {
+       height: 20,
+       width: 15
+     }
+    },
+
+
   gombSzoveg:{
     textAlign:'center',
-    color:'black',
+    color:'white',
     marginTop:'auto',
     marginBottom:'auto',
     fontSize:25
 },
 gomb:{
-  borderWidth:3,
   width:110,
   height:60,
   marginRight:"auto",
-  backgroundColor:'#ec8787',
+  backgroundColor:'#667399',
   borderRadius:15,
   padding: 10,
 

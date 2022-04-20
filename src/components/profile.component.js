@@ -33,7 +33,7 @@ export default class Profile extends Component {
         <div>
         <header className="jumbotron">
           <h3>
-            <strong>{currentUser.username}</strong> Profile
+            <strong>{currentUser.username}</strong> Profil
           </h3>
         </header>
         <p>

@@ -4,6 +4,12 @@ import React,{useState} from 'react'
 
 function FileUpload(props) {
 
+
+
+
+
+
+    
     const [file, setFile] = useState();
     const [fileName, setFileName] = useState("");
 
@@ -27,13 +33,14 @@ function FileUpload(props) {
 
             let bemenet={
                 bevitel1:props.termek_nev,
-                bevitel2:props.termek_info,
-                bevitel3:props.termek_ar,
-                bevitel4:fileName,
-                bevitel3:props.termek_tipus,
+                bevitel2:props.termek_tipus,
+                bevitel3:props.termek_info,
+                bevitel4:props.termek_ar,
+                bevitel5:fileName,
+               
               }
           
-              fetch('http://localhost:8080/termekfelvitel2',{
+              fetch('http://localhost:8080/termekfelvitel',{
                 method: "POST",
                 body: JSON.stringify(bemenet),
                 headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -51,9 +58,22 @@ function FileUpload(props) {
     };
 
         return (
-            <div  className="App">
+
+
+
+
+
+            <div  className="App" >
+
                 <input type="file" onChange={saveFile} />
-                <button onClick={uploadFile}>Feltöltés</button>
+
+
+
+
+
+
+
+                <button onClick={uploadFile}> Feltöltés</button>
             </div>
         );
 }
