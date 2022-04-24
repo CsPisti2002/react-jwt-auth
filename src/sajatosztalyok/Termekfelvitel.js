@@ -81,7 +81,7 @@ felvitel=async ()=>{
           <TextInput
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            placeholder="Add meg a kérdést:"
+            placeholder="Termék neve:"
             onChangeText={(termek_nev) => this.setState({termek_nev})}
             value={this.state.termek_nev}
           />
@@ -114,7 +114,7 @@ felvitel=async ()=>{
           <TextInput
             placeholderTextColor="#dddddd"
             style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30}}
-            placeholder=" E-mail/telefonszám"
+            placeholder=" Ár:"
             onChangeText={(termek_ar) => this.setState({termek_ar})}
             value={this.state.termek_ar}
           />
@@ -127,13 +127,7 @@ felvitel=async ()=>{
          
 
           
-           <TouchableOpacity
-            
-            onPress={async ()=>this.felvitel()}>
-            <View style={styles.gomb}>
-              <Text style={styles.gombSzoveg}>Küldés</Text>
-            </View>
-          </TouchableOpacity> 
+          
   
 
          

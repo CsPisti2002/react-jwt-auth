@@ -101,7 +101,7 @@ felvitel=async ()=>{
          <TouchableOpacity
           onPress={async ()=>this.felvitel()}>
           <View style={styles.gomb}>
-            <Text style={styles.gombSzoveg}>Felvitel</Text>
+            <Text style={styles.gombSzoveg}>Küldés</Text>
           </View>
         </TouchableOpacity>
         
